@@ -19,6 +19,9 @@ class NeuralNetwork:
 
         return out_o1
 
+def mse_loss(true, pred):
+    return ((true - pred)** 2).mean()
+
 
 network = NeuralNetwork()
 x = numpy.array([2, 3])
