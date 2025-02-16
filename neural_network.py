@@ -2,6 +2,20 @@ import numpy
 import node
 
 
+def sigmoid(x):
+    return 1 / (1 + numpy.exp(-x))
+
+
+class Node():
+    def __init__(self, w, b):
+        self.weight = w
+        self.bias = b
+
+    def calculateOutput(self, input):
+        output = numpy.dot(self.weight, input) + self.bias
+        return sigmoid(output)
+
+
 class NeuralNetwork:
     def __init__(self):
         weight = numpy.array([0, 1])
@@ -19,8 +33,9 @@ class NeuralNetwork:
 
         return out_o1
 
+
 def mse_loss(true, pred):
-    return ((true - pred)** 2).mean()
+    return ((true - pred) ** 2).mean()
 
 
 network = NeuralNetwork()
